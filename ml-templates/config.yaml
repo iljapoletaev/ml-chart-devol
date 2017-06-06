@@ -1,6 +1,4 @@
-Args: ""
 Cmd: demo.py
-EnvVars: []
 ExecutionDir: /src-nfs
 Images:
   BaseImage: tensorflow/tensorflow
@@ -16,34 +14,27 @@ Requests:
   PsPods: 0
   WorkerPods: 0
 Volumes:
-- isLibDir: false
+- name: output
   isTrainLogDir: true
   mountPath: /training
-  name: output
-  nfs:
-    path: /kuberlab
-    server: 192.168.1.55
   subPath: training
-- gitRepo:
-    repository: https://github.com/lsheiba/devol
-  isLibDir: false
-  isTrainLogDir: false
+  nfs:
+    path: /kuberlab
+    server: 192.168.1.55
+- name: github
   mountPath: /src
-  name: github
-  subPath: ""
-- isLibDir: false
-  isTrainLogDir: false
+  gitRepo:
+    repository: https://github.com/lsheiba/devol
+- name: nfs
   mountPath: /src-nfs
-  name: nfs
-  nfs:
-    path: /kuberlab
-    server: 192.168.1.55
   subPath: /devol
-- isLibDir: true
-  isTrainLogDir: false
-  mountPath: /plib
-  name: lib
   nfs:
     path: /kuberlab
     server: 192.168.1.55
+- name: lib
+  isLibDir: true
+  mountPath: /plib
   subPath: lib
+  nfs:
+    path: /kuberlab
+    server: 192.168.1.55

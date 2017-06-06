@@ -1,0 +1,7 @@
+name: Devol in dir
+version: 1.0.0
+description: Description for Devol
+keywords:
+- devol
+- tensorflow
+engine: gotpl

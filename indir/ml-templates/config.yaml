@@ -1,0 +1,40 @@
+Cmd: demo-in-dir.py
+ExecutionDir: /src-nfs
+Images:
+  BaseImage: tensorflow/tensorflow
+  GpuImage: kuberlab/gpu-monitoring:latest
+  PSImage: tensorflow/tensorflow
+MonitoringNamespace: kuberlab
+Requests:
+  CPU: 100m
+  CPULimit: 1000m
+  GPU: 1
+  Memory: 1Gi
+  MemoryLimit: 32Gi
+  PsPods: 0
+  WorkerPods: 0
+Volumes:
+- name: output
+  isTrainLogDir: true
+  mountPath: /training
+  subPath: training
+  nfs:
+    path: /kuberlab
+    server: 192.168.1.55
+- name: github
+  mountPath: /src
+  gitRepo:
+    repository: https://github.com/lsheiba/devol
+- name: nfs
+  mountPath: /src-nfs
+  subPath: /devol
+  nfs:
+    path: /kuberlab
+    server: 192.168.1.55
+- name: lib
+  isLibDir: true
+  mountPath: /plib
+  subPath: lib
+  nfs:
+    path: /kuberlab
+    server: 192.168.1.55

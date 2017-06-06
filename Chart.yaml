@@ -1,6 +1,6 @@
-name: Devol
+name: Devol repo
 version: 1.0.0
-description: Description for Devol
+description: Devol, but from git
 keywords:
 - devol
 - tensorflow

@@ -19,7 +19,8 @@ Volumes:
   mountPath: /training
   subPath: training
   nfs:
-{{ toYaml .nfs | indent 4 }}
+    server: {{ .nfs.server }}
+    path: {{ .nfs.path }}
 - name: github
   mountPath: /src
   gitRepo:
@@ -28,10 +29,12 @@ Volumes:
   mountPath: /src-nfs
   subPath: /devol
   nfs:
-{{ toYaml .nfs | indent 4 }}
+    server: {{ .nfs.server }}
+    path: {{ .nfs.path }}
 - name: lib
   isLibDir: true
   mountPath: /plib
   subPath: lib
   nfs:
-{{ toYaml .nfs | indent 4 }}
+    server: {{ .nfs.server }}
+    path: {{ .nfs.path }}

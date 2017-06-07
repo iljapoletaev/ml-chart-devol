@@ -13,6 +13,15 @@ Requests:
   MemoryLimit: {{ .resources.limits.memory }}
   PsPods: {{ .resources.pods.ps }}
   WorkerPods: {{ .resources.pods.worker }}
+Jupyter:
+  CPU: {{ .jupyter.requests.cpu }}
+  CPULimit: {{ .jupyter.limits.cpu }}
+  Memory: {{ .jupyter.requests.memory }}
+  MemoryLimit: {{ .jupyter.limits.memory }}
+  Image: {{ .jupyter.image }}
+  UseGPU: {{ .jupyter.useGpu }}
+Tensorboard:
+  Image: {{ .tensorboard.image }}
 Volumes:
 - name: output
   isTrainLogDir: true

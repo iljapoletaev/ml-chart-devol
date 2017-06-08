@@ -5,6 +5,8 @@ Images:
   GpuImage: kuberlab/gpu-monitoring:latest
   PSImage: tensorflow/tensorflow
 MonitoringNamespace: {{ .monitoringNamespace }}
+PythonPackages:
+- keras
 Requests:
   CPU: {{ .resources.requests.cpu }}
   CPULimit: {{ .resources.limits.cpu }}

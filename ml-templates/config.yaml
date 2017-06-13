@@ -49,3 +49,7 @@ Volumes:
   nfs:
     server: {{ .nfs.server }}
     path: {{ .nfs.path }}
+- name: githubtest
+  mountPath: /gittest
+  gitRepo:
+    repository: ""

@@ -7,6 +7,7 @@ Images:
 MonitoringNamespace: {{ .monitoringNamespace }}
 PythonPackages:
 - keras
+- tqdm
 Requests:
   CPU: {{ .resources.requests.cpu }}
   CPULimit: {{ .resources.limits.cpu }}
